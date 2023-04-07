@@ -4,3 +4,4 @@ export default function movies(state = [], action) {
     }
     return state;
 }
+    
