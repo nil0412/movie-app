@@ -6,11 +6,8 @@ import "./index.css";
 import App from "./components/App";
 import movies from "./reducers";
 
-const reducer = {
-  movies
-}
-
-const store = configureStore({reducer});
+console.log('print store: ');  
+const store = configureStore({reducer: movies});
 console.log('store: ', store);  
 // console.log('Before store.getState: ', store.getState()); 
 // store.dispatch({

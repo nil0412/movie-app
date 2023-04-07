@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import MovieCard from "./MovieCard";
 import { data } from "../data";
+import { addMovies } from "../actions";
 
 class App extends React.Component {
   componentDidMount() {
@@ -12,26 +13,24 @@ class App extends React.Component {
     });
     //make api call
     //dispatch action
-    this.props.store.dispatch({
-      type: "ADD_MOVIES",
-      movies: data,
-    });
+    this.props.store.dispatch(addMovies(data));
     console.log("State: ", this.props.store.getState());
   }
-  
+
   render() {
-    console.log('RENDER');
-    const movies = this.props.store.getState();
+    console.log("RENDER");
+    const { list } = this.props.store.getState();
+    console.log("Movies: ", list);
     return (
       <div className="App">
         <Navbar />
         <div className="main">
           <div className="tabs">
             <div className="tab">Movies</div>
-            <div className="tab">Favorites</div>
+            <div className="tab">Favourites</div>
           </div>
           <div className="list">
-            {movies.movies.map((movie, index) => (
+            {list.map((movie, index) => (
               <MovieCard movie={movie} key={`movies-${index}`} />
             ))}
           </div>
