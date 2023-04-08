@@ -44,6 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 90%;
 }
 .search-result .movie-info button {
   margin: 20px 10px;
@@ -52,8 +53,18 @@ body {
   font-weight: 600;
   font-size: 14px;
   border: none;
-  padding: 9px 0;
+  padding: 9px 10px;
   border-radius: 4px;
+}
+.search-result .movie-info .search-result-box-cancel{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.search-result .movie-info .close-search-box{
+  background: #8d1010;
 }
 .search-result {
   display: flex;
