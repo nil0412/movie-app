@@ -111,19 +111,20 @@ body {
   font-size: 20px;
 }
 .main .tabs .tab {
-  background: #fff;
   padding: 10px;
   margin-right: 13px;
+  margin-bottom: 5px;
   border-radius: 3px;
-  border: 1px solid #e1e1e1;
+  background-color: #3292db;
+  color: #fff;
 }
 .active-tabs {
-  background: #2185d0 !important;
+  background: #143885 !important;
   color: white;
 }
 .main .tabs .tab:hover {
   cursor: pointer;
-  background: #e1e1e1;
+  background: #154cc2;
 }
 .movie-card {
   background: #fff;

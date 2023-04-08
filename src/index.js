@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import "./index.css";
 import App from "./components/App";
-import movies from "./reducers";
+import { movies, search } from "./reducers";
 
-console.log('print store: ');  
-const store = configureStore({reducer: movies});
-console.log('store: ', store);  
-// console.log('Before store.getState: ', store.getState()); 
+const rootReducer = combineReducers({
+  movies,
+  search
+})
+
+const store = configureStore({reducer: rootReducer});
+console.log('Before store.getState: ', store.getState());  
 // store.dispatch({
 //   type: 'ADD_MOVIES',
 //   movies:[{name: 'Superman'}]
