@@ -7,6 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #f1f1f1;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 .nav {
   background: black;
   height: 70px;

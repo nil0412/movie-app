@@ -1,5 +1,6 @@
 import React from "react";
 import { addMovieToList, closeSearchBox, handleMovieSearch } from "../actions";
+import { connect } from "../index";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -13,6 +14,11 @@ class Navbar extends React.Component {
     this.props.dispatch(handleMovieSearch(searchText));
   };
   handleAddToMovies = (movie) => {
+    const inputField = document.getElementById("search-input-field");
+    inputField.value = "";
+    this.setState({
+      searchText: "",
+    });
     this.props.dispatch(addMovieToList(movie));
   };
   handleChange = (e) => {
@@ -65,4 +71,24 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+// class NavbarWrapper extends React.Component {
+//   render() {
+//     return (
+//       <StoreContext.Consumer>
+//         {(store) => (
+//           <Navbar dispatch={store.dispatch} search={this.props.search} />
+//         )}
+//       </StoreContext.Consumer>
+//     );
+//   }
+// }
+
+function mapStateToProps(state) {
+  return ({
+    search: state.search
+  });
+}
+
+const connecteNavbarComponent = connect(mapStateToProps)(Navbar);
+
+export default connecteNavbarComponent;
